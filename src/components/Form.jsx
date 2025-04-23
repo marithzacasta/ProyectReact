@@ -1,12 +1,11 @@
 import { loginUser } from '../api/api';
 import { useState } from "react";
-
-
+import Swal from 'sweetalert2';
 
 export function FormSignIn({ alternarFormulario }) {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');   
+    const [password, setPassword] = useState('');
 
     const modificarEmail = (e) => {
         setEmail(e.target.value)
@@ -18,12 +17,39 @@ export function FormSignIn({ alternarFormulario }) {
 
     const handleSubmit = async () => {
         try {
-          const data = await loginUser(email, password);
-          console.log("Login exitoso:", data);
+            const data = await loginUser(email, password);
+            console.log(data.message);
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Signed in successfully"
+            });
+
+
         } catch (err) {
-          console.error("Error:", err.message);
+            console.error("Error:", err.message);
+
+            Swal.fire({
+                icon: "error",
+                title: 'Error',
+                text: err.message || 'Error en el inicio de sesión',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+
         }
-      };
+    };
 
     return (
 
@@ -73,3 +99,4 @@ export function FormSignIn({ alternarFormulario }) {
 
     )
 }
+
