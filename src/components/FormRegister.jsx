@@ -1,7 +1,7 @@
 import { registerUser } from "../api/authApi"
 import { useState } from "react";
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+
 
 export function FormRegister({ alternarFormulario }) {
 
@@ -31,7 +31,7 @@ export function FormRegister({ alternarFormulario }) {
         setConfirmPassword(e.target.value)
     }
 
-    const navigate = useNavigate(); // Hook de React Router para navegar entre rutas
+
 
     const handleSubmit = async () => {
 

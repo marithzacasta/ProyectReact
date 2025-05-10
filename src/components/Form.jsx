@@ -3,11 +3,10 @@ import { useState } from "react";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
-export function FormSignIn({alternarFormulario}) {
+export function FormSignIn({ alternarFormulario }) {
 
     const [InputEmailColor, setInputEmailColor] = useState(false);
     const [InputPasswordColor, setInputPasswordColor] = useState(false);
-
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +24,7 @@ export function FormSignIn({alternarFormulario}) {
     const handleSubmit = async () => {
         try {
             const data = await loginUser(email, password);
-            console.log(data.message);
+            console.log(data);
 
             const Toast = Swal.mixin({
                 toast: true,
@@ -42,10 +41,11 @@ export function FormSignIn({alternarFormulario}) {
                 icon: "success",
                 title: "Signed in successfully"
             });
-             
+
             setTimeout(() => {
                 navigate('/dashboardPage'); // Redirige a la página de inicio después de 2 segundos
             }, 2000);
+
 
         } catch (err) {
             console.error("Error:", err.message);
@@ -105,11 +105,11 @@ export function FormSignIn({alternarFormulario}) {
 
                 <div>
                     <label className="text-lg font-medium">Email</label>
-                    <input value={email} onChange={modificarEmail} className={`w-full border-2 ${ InputEmailColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100' } rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="email" placeholder="Enter your email" />
+                    <input value={email} onChange={modificarEmail} className={`w-full border-2 ${InputEmailColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100'} rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="email" placeholder="Enter your email" />
                 </div>
                 <div>
                     <label className="text-lg font-medium">Password</label>
-                    <input value={password} onChange={modificarPassword} className={`w-full border-2 ${ InputPasswordColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100' } rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="password" placeholder="Enter your password" />
+                    <input value={password} onChange={modificarPassword} className={`w-full border-2 ${InputPasswordColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100'} rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="password" placeholder="Enter your password" />
                 </div>
 
                 <div className="mt-8 flex justify-between items-center">
