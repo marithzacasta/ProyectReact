@@ -31,6 +31,31 @@ export const loginUser = async (email, password) => {
     }
 };
 
+export const logoutUser = async () => {
+    try {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include', // Permite enviar cookies junto con la solicitud, lo que es útil para la autenticación.
+        }
+
+        const response = await fetch(`${API_URL}/api/logout`, options);
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error al cerrar sesión');
+        }
+
+        return data;
+
+    } catch (error) {
+        console.error('Error en logoutUser:', error.message);
+        throw error;
+    }
+}
+
 export const authUser = async () => {
     try {
         const options = {
