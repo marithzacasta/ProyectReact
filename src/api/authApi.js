@@ -1,5 +1,5 @@
+import { fetchWithRefresh } from "./fetchWithRefresh";
 const API_URL = import.meta.env.VITE_API_URL;
-
 
 
 export const loginUser = async (email, password) => {
@@ -81,6 +81,7 @@ export const authUser = async () => {
 };
 
 
+
 export const registerUser = async (names, lastNames, email, password) => {
 
     const name = `${names} ${lastNames}`; // Concatenar nombres y apellidos
@@ -115,21 +116,20 @@ export const mostrar = async () => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            },
-            credentials: 'include', // Permite enviar cookies junto con la solicitud, lo que es útil para la autenticación.
+            }
         }
     
-        const response = await fetch(`${API_URL}/api/listar`, options);
+        const response = await fetchWithRefresh(`${API_URL}/api/listar`, options);
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.message || 'Error en la autenticación');
+            throw new Error(data.message || 'Error al listar usuarios');
         }
 
         return data;
 
     } catch (error) {
-        console.error('Error en authUser:', error.message);
+        console.error('Error al mostrar usuarios:', error.message);
         throw error;
     }
 };
