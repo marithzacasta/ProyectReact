@@ -24,7 +24,6 @@ export function FormSignIn({ alternarFormulario }) {
     const handleSubmit = async () => {
         try {
             const data = await loginUser(email, password);
-            console.log(data);
 
             const Toast = Swal.mixin({
                 toast: true,
