@@ -1,6 +1,7 @@
-import { LayoutDashboard, ClipboardPen, SquareChartGantt, Footprints, LogOut } from "lucide-react";
+import { LayoutDashboard, Heart, SquareChartGantt, Clapperboard, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logoutUser } from "../api/authApi";
 import Swal from 'sweetalert2';
 
@@ -46,39 +47,44 @@ export function Menu() {
     }
 
     return (
-        <div className={`${open ? "w-60" : "w-20"} bg-white shadow-md duration-500 transition-all ease-in-out fixed h-full md:relative z-10 flex flex-col`}>
+        <div className={`${open ? "w-60" : "w-20"} bg-white shadow-md duration-500 transition-all ease-in-out relative h-full z-10 flex flex-col`}>
 
             <div
                 className={`flex px-4 py-5 border-b transition-all duration-300 ${open ? "items-center justify-between" : "justify-center"}`}>
-                <span className={`text-3xl font-bold text-blue-600 ${!open && "hidden"}`}>Shoes</span>
+                <span className={`text-3xl font-bold text-blue-600 ${!open && "hidden"}`}>Movies</span>
                 {/* Si open = true → se muestra el texto "Shoes" / Si open = false → se aplica hidden y el texto no se ve */}
                 <button onClick={closeMenu}>
-                    <Footprints className="w-6 h-6 text-gray-600" />
+
+                    <Clapperboard className="w-6 h-6 text-gray-600" />
 
                 </button>
             </div>
 
             <nav className="mt-4 flex-1">
                 <ul>
-                    <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
-                        <LayoutDashboard className="w-6 h-6 text-gray-600" />
-                        {open && <span className="font-semibold ml-3 text-gray-600 ">Dashboard</span>}
-                        {/* open && → si la variable open es true, entonces muestra el elemento <span>...</span>. Si open es false, no muestra nada. */}
-                        {/* Es una forma corta de escribir: {open ? <span>Perfil</span> : null} */}
+                    <Link to="/dashboardPage">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <LayoutDashboard className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600 ">Dashboard</span>}
+                            {/* open && → si la variable open es true, entonces muestra el elemento <span>...</span>. Si open es false, no muestra nada. */}
+                            {/* Es una forma corta de escribir: {open ? <span>Perfil</span> : null} */}
+                        </li>
+                    </Link>
 
-                    </li>
+                    <Link to="/dashboardPage/popular">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <SquareChartGantt className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Popular Movies</span>}
+                        </li>
+                    </Link>
 
-                    <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
-                        <SquareChartGantt className="w-6 h-6 text-gray-600" />
-                        {open && <span className="font-semibold ml-3 text-gray-600">Manage Shoes</span>}
-                    </li>
+                    <Link to="/dashboardPage/favorites">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <Heart className="w-6 h-6 text-gray-600" />
 
-                    <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
-                        <ClipboardPen className="w-6 h-6 text-gray-600" />
-
-                        {open && <span className="font-semibold ml-3 text-gray-600">Orders</span>}
-                    </li>
-
+                            {open && <span className="font-semibold ml-3 text-gray-600">Top_Rated Movies</span>}
+                        </li>
+                    </Link>
 
                 </ul>
             </nav>

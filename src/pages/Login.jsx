@@ -2,6 +2,7 @@ import { useState } from "react";
 import {FormSignIn} from '../components/Form.jsx';
 import {FormRegister} from '../components/FormRegister.jsx';
 
+
 // lg, significa Large (grande). Se activa cuando la pantalla tiene un ancho mínimo de 1024px (tamaño de una laptop estándar).
 // relative y absolute son propiedades de posicionamiento de CSS. relative hace que el elemento se posicione de acuerdo a su posición original, mientras que absolute hace que el elemento se posicione de acuerdo a su contenedor más cercano.
 // animate-spin es una clase de Tailwind CSS que hace que un elemento gire en sentido horario.
@@ -14,12 +15,14 @@ function Login() {
 
   const [showRegister, setShowRegister] = useState(false);
 
+
   const handleAlterForm = () => {
     setShowRegister(!showRegister);
   }           
 
   const vista = showRegister ? <FormRegister alternarFormulario={handleAlterForm}/> : <FormSignIn alternarFormulario={handleAlterForm}/>;
-  
+ 
+
   return (
     <>
     <div className="flex w-full h-screen">
@@ -28,10 +31,10 @@ function Login() {
        {vista}
       </div>
 
-      <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center ">
+      <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center bg-gray-400">
         
         {/* <div className="w-60 h-60 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full animate-bounce"></div> */}
-        <img src="./img/tienda-de-zapatos.png" alt="" className="w-130 h-130 animate-bounce" />
+        <img src="./img/accion.png" alt="" className="w-48 h-48 animate-bounce" />
         {/* <div className="w-full h-1/2 absolute bottom-0 bg-white/10 backdrop-blur-lg"></div> */}
       </div>
 
