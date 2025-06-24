@@ -17,20 +17,20 @@ export default function AppRoutes() {
   return (
     <BrowserRouter> {/* Es el componente que se encarga de manejar el enrutamiento en el navegador usando la historia del navegador (sin recargar la página). */}
       <Routes> {/* Componente que agrupa todas las rutas. */}
-       
-       <Route path="/" element={<Home/>}>
-       <Route index element={<Homee />} />
-       <Route path="/movies" element={<Movies/>} />
-       <Route path="/series" element={<Series/>} />
-       <Route path="/map" element={<Map/>} />
-       </Route>
 
-       
+        <Route path="/" element={<Home />}>
+          <Route index element={<Homee />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/map" element={<Map />} />
+        </Route>
+
+
         <Route path="/login" element={<Login />} /> {/* Componente que define una ruta (una URL y qué componente mostrar). */}
 
         {/* 🔐 Rutas protegidas */}
         <Route element={<PrivateRoute />}>
-        <Route path="/dashboardPage" element={<DashboardPage />}>
+          <Route path="/dashboardPage" element={<DashboardPage />}>
             {/* Subrutas que renderiza Outlet dentro de DashboardPage */}
             <Route index element={<Dashboard />} /> {/* Ruta por defecto */}
             <Route path="popular" element={<PopularMovie />} />

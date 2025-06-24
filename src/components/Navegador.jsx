@@ -1,4 +1,4 @@
-import { Clapperboard, UserRound } from "lucide-react";
+import { Clapperboard, UserRound, Menu } from "lucide-react";
 
 
 import Lottie from "lottie-react";
@@ -17,8 +17,8 @@ export function Navegador() {
 
     return (
         <>
-            <nav className="flex justify-between p-5 bg-white shadow-md fixed w-full">
-                <div className="flex gap-3">
+            <nav className="flex justify-between p-5 bg-white shadow-md fixed w-full z-50 ">
+                <div className="flex gap-3 ">
                     <h1 className="text-3xl font-semibold">CineGalaxy</h1>
                     {/* <Clapperboard className="w-7 h-7 text-blue-500 mt-2" /> */}
                     <Lottie animationData={MovieClapper} loop={true} className="w-10 h-10 " />
@@ -26,17 +26,22 @@ export function Navegador() {
 
                 <div className="flex gap-5 items-center">
                     <Link to="/">
-                        <a href="#" className="text-lg font-semibold hover:text-blue-800">Home</a>
+                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden sm:block">Home</a>
                     </Link>
                     <Link to="/movies">
-                        <a href="#" className="text-lg font-semibold hover:text-blue-800">Movies</a>
+                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden sm:block">Movies</a>
                     </Link>
-                    <Link to="/movies">
-                        <a href="#" className="text-lg font-semibold hover:text-blue-800">Series</a>
+                    <Link to="/series">
+                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden sm:block">Series</a>
                     </Link>
                     <Link to="/map">
-                        <a href="#" className="text-lg font-semibold hover:text-blue-800">Map</a>
+                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden sm:block">Map</a>
                     </Link>
+
+                    <button className="sm:hidden hover:text-blue-600 rounded-full hover:bg-blue-100 w-8 h-8 flex items-center justify-center">
+                        <Menu />
+                    </button>
+
                     <button onClick={handleLogin} className="bg-blue-500 text-white font-semibold p-2 flex gap-2 rounded-md hover:bg-blue-400"> Login  <UserRound className="w-6 h-6 " /></button>
                 </div>
             </nav>

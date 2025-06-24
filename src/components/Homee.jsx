@@ -1,3 +1,9 @@
+import Lottie from "lottie-react";
+import Dowload from "../assets/icons/Download.json";
+import User from "../assets/icons/User.json";
+import Archive from "../assets/icons/FolderOpen.json";
+import { Link } from "react-router-dom";
+
 export function Homee() {
     const handleCV = () => {
         const link = document.createElement("a"); // Crea un elemento de enlace.
@@ -18,7 +24,7 @@ export function Homee() {
                 <div className="bg-white grid md:grid-cols-[60%_40%] ">
 
                     <div className="p-5 py-10 flex ">
-                        <img src="/img/foto_mia.jpg" alt="" className="w-50 h-60 rounded-lg" />
+                        <img src="/img/foto_mia.jpg" alt="" className="w-50 h-60 rounded-lg shadow-md" />
 
                         <div className="p-5">
                             <h1 className="font-semibold text-lg">Marithza Castaño</h1>
@@ -30,43 +36,23 @@ export function Homee() {
 
                     </div>
 
-                    <div className="bg-amber-400 px-40 md:px-20 py-10 flex flex-col items-center justify-center gap-5">
-                        <button onClick={handleCV} className="p-2 w-full bg-white rounded-lg font-semibold hover:bg-slate-100">My CV</button>
-                        <button className="p-2 w-full text-white bg-blue-500 rounded-lg font-semibold hover:bg-blue-600">Contact me</button>
-                        <button className="p-2 w-full bg-white rounded-lg font-semibold hover:bg-slate-100">Information About me</button>
+                    <div className="bg-violet-400 px-40 md:px-20 py-10 flex flex-col items-center justify-center gap-5 transition-all duration-200">
+                        <button onClick={handleCV} className="p-2 w-full text-white bg-blue-600 rounded-lg font-semibold shadow-lg hover:bg-white hover:text-red-600 hover:shadow-red-600 flex flex-col items-center justify-center group">
+                            My CV
+                            <Lottie animationData={Dowload} loop={true} className="w-12 h-12 hidden group-hover:block" />
+                        </button>
+                        <button onClick={handleCV} className="p-2 w-full text-white bg-blue-400 rounded-lg font-semibold shadow-lg hover:bg-white hover:text-blue-600 hover:shadow-blue-600 flex flex-col items-center justify-center group">
+                            Contact me
+                            <Lottie animationData={User} loop={true} className="w-12 h-12 hidden group-hover:block" />
+                        </button>
+                        <button onClick={handleCV} className="p-2 w-full text-white bg-yellow-300 rounded-lg font-semibold shadow-lg hover:bg-white hover:text-green-500 hover:shadow-green-600 flex flex-col items-center justify-center group">
+                        Information About Page
+                            <Lottie animationData={Archive} loop={true} className="w-12 h-12 hidden group-hover:block" />
+                        </button>
 
                     </div>
 
                 </div>
-
-                {/* <div className="grid md:grid-cols-[40%_60%]">
-    <div className="p-5 py-10 bg-purple-400 text-white">
-        <h1 className="font-semibold text-2xl">About this project</h1>
-        <br />
-        <p className="text-sm">This project is a web application that allows users to explore and manage a collection of movies.
-            It includes features such as viewing popular movies, managing favorites, and searching for specific titles.
-            The application is built using React and integrates with the TMDB API to fetch movie data.</p>
-
-    </div>
-
-    <div className="p-5 py-10 ">
-        <h1 className="font-semibold text-lg">Technologies used</h1>
-        <br />
-        <p className="text-sm">The project is developed using the following technologies:</p>
-
-        <div className="grid grid-cols-3 gap-4 mt-5 text-white">
-            <button className="bg-blue-300 p-2 flex flex-col items-center rounded-md shadow-md shadow-blue-700 transition transform hover:scale-105 duration-300"> <Atom /> React</button>
-            <button className="bg-blue-700 p-2 flex flex-col items-center rounded-md shadow-md shadow-blue-400 transition transform hover:scale-105 duration-300"> <EqualApproximately /> Tailwind </button>
-            <button className="bg-blue-400 p-2 flex flex-col items-center rounded-md shadow-md shadow-green-500 transition transform hover:scale-105 duration-300"> <Film /> TMDB API </button>
-            <button className="bg-gray-600 p-2 flex flex-col items-center rounded-md shadow-md shadow-purple-700 transition transform hover:scale-105 duration-300"> <Github /> GitHub </button>
-            <button className="bg-yellow-400 p-2 flex flex-col items-center rounded-md shadow-md shadow-white transition transform hover:scale-105 duration-300"> <FileJson /> JavaScript </button>
-            <button className="bg-red-600 p-2 flex flex-col items-center rounded-md shadow-md shadow-gray-600 transition transform hover:scale-105 duration-300"> <Shell /> Lucide</button>
-
-        </div>
-
-    </div>
-
-</div> */}
 
                 <div className="p-5 pb-20">
 
@@ -87,9 +73,9 @@ export function Homee() {
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40">
-                                <h1 className="text-xl font-semibold text-white">New Releases</h1>
+                                <h1 className="text-xl font-semibold text-white">Map</h1>
                                 <button className="bg-white p-2 rounded-md shadow-lg hover:bg-slate-100 mt-2">
-                                    Watch List
+                                    Watch 
                                 </button>
                             </div>
                         </div>
@@ -104,9 +90,11 @@ export function Homee() {
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40">
                                 <h1 className="text-xl font-semibold text-white">Popular Series</h1>
+                                <Link to={"/series"}> 
                                 <button className="bg-white p-2 rounded-md shadow-lg hover:bg-slate-100 mt-2">
                                     Watch List
                                 </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -119,9 +107,12 @@ export function Homee() {
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-400 bg-opacity-50">
                                 <h1 className="text-xl font-semibold">Popular Movies</h1>
+                                <Link to={"/movies"}> 
                                 <button className="bg-white p-2 rounded-md shadow-lg hover:bg-slate-100 mt-2">
                                     Watch List
                                 </button>
+                                </Link>
+                                
                             </div>
                         </div>
 
