@@ -1,6 +1,6 @@
 import { Film } from "lucide-react";
 import { useEffect, useState } from "react";
-import { TopRatedTMDB } from "../api/tmdbApi";
+import { TopRatedMoviesTMDB } from "../api/tmdbApi";
 
 export function Favorites() {
 
@@ -9,7 +9,7 @@ export function Favorites() {
     useEffect(() => {
         const mostrarTopRated = async () => {
             try {
-                const data = await TopRatedTMDB();
+                const data = await TopRatedMoviesTMDB();
                 sertTopRated(data.results);
                 console.log(data.results); // Verifica la estructura de datos
                 

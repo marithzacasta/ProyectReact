@@ -1,7 +1,7 @@
 import { Package, ShoppingBag, Users, TrendingUp } from "lucide-react";
 // import { mostrar } from "../api/authApi";
 import { useEffect, useState } from "react";
-import { UpcomingReleasesTMDB } from "../api/tmdbApi";
+import { UpcomingReleasesMoviesTMDB } from "../api/tmdbApi";
 
 
 export function Dashboard() {
@@ -33,7 +33,7 @@ export function Dashboard() {
 
         const cargarLanzamientos = async () => {
             try {
-                const data = await UpcomingReleasesTMDB();
+                const data = await UpcomingReleasesMoviesTMDB();
                 setLanzamientos(data.results); // Asumiendo que quieres la lista de lanzamientos
                 console.log(data.results); // Verifica la estructura de datos
 
