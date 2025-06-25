@@ -39,7 +39,8 @@ export function Movies() {
             <div className="w-full pt-20">
 
                 <div className="flex justify-between items-center px-10 py-5">
-                    <h1 className="font-semibold text-4xl m-5">Popular Movies</h1>
+                
+                    <h1 className=" font-bold text-4xl m-5">Popular Movies</h1>
 
                     <select
                         className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none"

@@ -95,7 +95,7 @@ export function FormSignIn({ alternarFormulario }) {
 
     return (
 
-        <div className="bg-white px-10 py-10 rounded-3xl border-2 border-gray-100">
+        <div className="bg-white px-10 py-10 rounded-3xl border-2 border-gray-100 shadow-xl">
 
             <h1 className="text-5xl font-semibold">Welcome Back!</h1>
             <p className="font-medium text-lg text-gray-500 mt-4">Welcome Back! Please enter your details.</p>

@@ -105,7 +105,7 @@ export function FormRegister({ alternarFormulario }) {
 
 
     return (
-        <div className="bg-white px-10 py-10 rounded-3xl">
+        <div className="bg-white px-10 py-10 rounded-3xl shadow-xl border-2 border-gray-100">
 
             <h1 className="font-semibold text-4xl">Register Here!</h1>
             <p className="text-lg font-medium text-gray-500 mt-3">Register here and love yourself with our discount.</p>

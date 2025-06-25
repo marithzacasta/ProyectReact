@@ -1,6 +1,6 @@
 import { useState } from "react";
-import {FormSignIn} from '../components/Form.jsx';
-import {FormRegister} from '../components/FormRegister.jsx';
+import { FormSignIn } from '../components/Form.jsx';
+import { FormRegister } from '../components/FormRegister.jsx';
 
 
 // lg, significa Large (grande). Se activa cuando la pantalla tiene un ancho mínimo de 1024px (tamaño de una laptop estándar).
@@ -18,28 +18,39 @@ function Login() {
 
   const handleAlterForm = () => {
     setShowRegister(!showRegister);
-  }           
+  }
 
-  const vista = showRegister ? <FormRegister alternarFormulario={handleAlterForm}/> : <FormSignIn alternarFormulario={handleAlterForm}/>;
- 
+  const vista = showRegister ? <FormRegister alternarFormulario={handleAlterForm} /> : <FormSignIn alternarFormulario={handleAlterForm} />;
+
 
   return (
     <>
-    <div className="flex w-full h-screen">
+      <div className="flex w-full h-screen">
 
-      <div className="w-full flex items-center justify-center lg:w-1/2 bg-gray-200">
-       {vista}
+        <div className="w-full flex items-center justify-center lg:w-1/2 bg-gray-100">
+          {vista}
+        </div>
+
+        <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center overflow-hidden">
+          {/* Imagen de fondo */}
+          <img
+            src="./img/fondo_login.jpg"
+            alt="Fondo"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+
+          {/* Capa borrosa encima */}
+          <div className="absolute inset-0 bg-white/30 z-10"></div>
+
+          {/* Contenido encima (opcional) */}
+          <div className="z-20 relative text-center text-black font-bold text-xl">
+             {/* <img src="./img/accion.png" alt="" className="w-48 h-48 animate-bounce" /> */}
+            
+          </div>
+        </div>
+
+
       </div>
-
-      <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center bg-gray-400">
-        
-        {/* <div className="w-60 h-60 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full animate-bounce"></div> */}
-        <img src="./img/accion.png" alt="" className="w-48 h-48 animate-bounce" />
-        {/* <div className="w-full h-1/2 absolute bottom-0 bg-white/10 backdrop-blur-lg"></div> */}
-      </div>
-
-
-    </div>
     </>
   )
 }

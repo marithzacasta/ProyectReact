@@ -66,7 +66,7 @@ export function Dashboard() {
 
                 {/* Cuadros sobre las estadisticas */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5" >
-                    <div className="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 h-28">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg p-4 flex items-center space-x-4 h-28">
                         <div className="bg-blue-100 p-3 rounded-full">
                             <Package className="w-6 h-6 text-blue-600" />
                         </div>
@@ -75,7 +75,7 @@ export function Dashboard() {
                             <p className="text-xl font-bold text-black">6</p>
                         </div>
                     </div>
-                    <div className="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 h-28">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg p-4 flex items-center space-x-4 h-28">
                         <div className="bg-green-100 p-3 rounded-full">
                             <ShoppingBag className="w-6 h-6 text-green-600" />
                         </div>
@@ -84,7 +84,7 @@ export function Dashboard() {
                             <p className="text-xl font-bold text-black">6</p>
                         </div>
                     </div>
-                    <div className="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 h-28">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg p-4 flex items-center space-x-4 h-28">
                         <div className="bg-yellow-100 p-3 rounded-full">
                             <Users className="w-6 h-6 text-yellow-600" />
                         </div>
@@ -93,7 +93,7 @@ export function Dashboard() {
                             <p className="text-xl font-bold text-black">6</p>
                         </div>
                     </div>
-                    <div className="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 h-28">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg p-4 flex items-center space-x-4 h-28">
                         <div className="bg-purple-100 p-3 rounded-full">
                             <TrendingUp className="w-6 h-6 text-purple-600" />
                         </div>
@@ -108,7 +108,7 @@ export function Dashboard() {
                 {/* Usuarios Registrados */}
                 <div className="grid gap-5 md:grid-cols-2 " >
 
-                    <div className="bg-white shadow-md rounded-lg md:row-span-2 h-96 md:h-[540px]">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg md:row-span-2 h-96 md:h-[540px]">
                         <h1 className="font-bold text-xl m-5">Upcoming Releases</h1>
 
                         <div className="overflow-y-auto h-72 md:h-[450px]">
@@ -133,7 +133,7 @@ export function Dashboard() {
 
                     </div>
 
-                    <div className="bg-white shadow-md rounded-lg">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg">
                         <h1 className="font-bold text-xl m-5">Quick Actions</h1>
                         <div className="p-5 border-t w-full grid gap-5">
                             <button className="bg-blue-600 text-white font-bold p-3 w-full rounded-md hover:bg-blue-500">Upcoming Releases</button>
@@ -142,7 +142,7 @@ export function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="bg-white shadow-md rounded-lg ">
+                    <div className="bg-white shadow-xl border border-gray-100 rounded-lg ">
                         <h1 className="font-bold text-xl m-5">Movies Status</h1>
                         <div className="p-5 border-t w-full grid gap-5">
                             <div className="flex justify-between">
