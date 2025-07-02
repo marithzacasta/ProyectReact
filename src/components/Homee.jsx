@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 
 export function Homee() {
-    // const handleCV = () => {
-    //     const link = document.createElement("a"); // Crea un elemento de enlace.
-    //     link.href = "../public/Hoja_de_vida.pdf"; // Le da una dirección (el archivo PDF).
-    //     link.download = "HojaDeVida_MarithzaCastano.pdf"; // Activa la descarga con download.
-    //     link.click(); // Simula un clic para iniciar la descarga.
-
-    // }
 
     return (
         <>

@@ -13,6 +13,7 @@ import { Map } from '../components/Map';
 import { Homee } from '../components/Homee';
 import ContactPage from '../pages/ContactPage';
 import AboutPage from '../pages/AboutPage';
+import { DetallePelicula } from '../components/DetallePelicula';
 
 // Separar tus rutas en un componente como AppRoutes es excelente.
 export default function AppRoutes() {
@@ -24,6 +25,7 @@ export default function AppRoutes() {
           <Route index element={<Homee />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/series" element={<Series />} />
+          <Route path="/movie/:id" element={<DetallePelicula />} />
           <Route path="/map" element={<Map />} />
         </Route>
 

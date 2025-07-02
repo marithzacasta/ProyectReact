@@ -1,11 +1,13 @@
 import { PopularMoviesTMDB, UpcomingReleasesMoviesTMDB, TopRatedMoviesTMDB, NowPlayingMoviesTMDB } from "../api/tmdbApi";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Movies() {
 
-
     const [mostrarMovies, setMostrarMovies] = useState([]);
     const [categoria, setCategoria] = useState("popular");
+
+    const navigate = useNavigate();
 
     const cambioCategoria = (e) => {
         setCategoria(e.target.value)   
@@ -60,6 +62,7 @@ export function Movies() {
                         <div
                             key={pelicula.id}
                             className="rounded-lg bg-white overflow-hidden shadow-lg hover:shadow-blue-600 transition-shadow duration-300 w-full"
+                            onClick={() => navigate(`/movie/${pelicula.id}`)}
                         >
                             <img
                                 src={`https://image.tmdb.org/t/p/w200${pelicula.poster_path}`}
@@ -73,6 +76,9 @@ export function Movies() {
                         </div>
                     ))}
                 </div>
+
+
+               
             </div>
 
         </>

@@ -22,6 +22,15 @@ export function Navegador() {
         window.open('/login', '_blank');
     }
 
+    const handleAbout = () => {
+        window.open('/about', '_blank');
+    }
+
+    const manejarClick = () => {
+        manegarMenu();
+        handleAbout();
+      };
+
     return (
         <>
             <nav className="flex justify-between p-5 bg-white/80 backdrop-blur-md shadow-md fixed w-full z-50 ">
@@ -42,9 +51,10 @@ export function Navegador() {
                     <Link to="/series">
                         <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden md:block">Series</a>
                     </Link>
-                    <Link to="/contact">
-                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden md:block">Contact</a>
-                    </Link>
+                    <button onClick={handleAbout}>
+                        <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden md:block">About me</a>
+                    </button>
+                   
 
                     <button onClick={manegarMenu} className="md:hidden hover:text-blue-600 rounded-full hover:bg-blue-100 w-8 h-8 flex items-center justify-center">
                         <Menu />
@@ -60,7 +70,7 @@ export function Navegador() {
                     <Link to="/" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Home </Link>
                     <Link to="/movies" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Movies</Link>
                     <Link to="/series" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Series</Link>
-                    <Link to="/contact" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Contact</Link>
+                    <button onClick={manejarClick} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2 text-start">About me</button>
                 </div>
             )}
 
