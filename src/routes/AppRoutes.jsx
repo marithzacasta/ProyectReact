@@ -9,9 +9,7 @@ import PrivateRoute from '../components/PrivateRoute'; // Componente para proteg
 import { Home } from '../pages/Home';
 import { Movies } from '../components/Movies';
 import { Series } from '../components/Series';
-import { Map } from '../components/Map';
 import { Homee } from '../components/Homee';
-import ContactPage from '../pages/ContactPage';
 import AboutPage from '../pages/AboutPage';
 import { DetallePelicula } from '../components/DetallePelicula';
 
@@ -26,13 +24,12 @@ export default function AppRoutes() {
           <Route path="/movies" element={<Movies />} />
           <Route path="/series" element={<Series />} />
           <Route path="/movie/:id" element={<DetallePelicula />} />
-          <Route path="/map" element={<Map />} />
+    
         </Route>
 
 
-        <Route path="/contact" element={<ContactPage />} />
+       
         <Route path="/about" element={<AboutPage />} />
-
         <Route path="/login" element={<Login />} /> {/* Componente que define una ruta (una URL y qué componente mostrar). */}
 
         {/* 🔐 Rutas protegidas */}

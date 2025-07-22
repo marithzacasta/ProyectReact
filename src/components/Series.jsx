@@ -2,12 +2,27 @@ import { PopularSeriesTMDB, TopRatedSeriesTMDB, OnTheAirSeriesTMDB, AiringTodayS
 import { useEffect, useState } from "react";
 
 export function Series() {
-    const [mostrarMovies, setMsotrarMovies] = useState([]);
+    const [mostrarSeries, setMsotrarSeries] = useState([]);
     const [categoria, setCategoria] = useState("popular")
+    const [busqueda, setBusqueda] = useState("");
 
     const cambioCategoria = (e) => {
         setCategoria(e.target.value)
     }
+
+    const handleBusqueda = (e) => {
+        setBusqueda(e.target.value);
+    };
+
+    const normalizeText = (text) =>
+        text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    // text.normalize("NFD") separa las letras de los acentos (o `)
+    // .replace(/[\u0300-\u036f]/g, "") se usa para eliminar los caracteres de acento que quedaron sueltos después de la normalización.
+
+    const seriresFiltradas = mostrarSeries.filter((serie) =>
+        normalizeText(serie.name).includes(normalizeText(busqueda))
+    ); // una variable que filtre según el texto del buscador:
+
 
     useEffect(() => {
         const mostrarPopularMovies = async () => {
@@ -21,8 +36,7 @@ export function Series() {
                 else if (categoria === "top_rated") data = await TopRatedSeriesTMDB();
 
 
-                setMsotrarMovies(data.results);
-                console.log(data.results);
+                setMsotrarSeries(data.results);
 
             } catch (error) {
                 console.error("Error al cargar las películas:", error.message)
@@ -38,35 +52,44 @@ export function Series() {
             <div className="w-full pt-20">
 
                 <div className="flex justify-between items-center px-10 py-5">
-                <h1 className=" font-bold text-4xl m-5">Popular Series</h1>
-             
+                    <h1 className=" font-bold text-4xl m-5">Popular Series</h1>
 
-                    <select
-                        className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none"
-                        value={categoria}
-                        onChange={cambioCategoria}>
+                    <div className="flex flex-col sm:flex-row ">
+                        <input
+                            type="text"
+                            placeholder="Buscar Serie..."
+                            value={busqueda}
+                            onChange={handleBusqueda}
+                            className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none mb-2 sm:mr-2"
+                        />
 
-                        <option value="popular">Populares</option>
-                        <option value="airing_today">Se emiten hoy</option>
-                        <option value="on_the_air">En el aire acualmente</option>
-                        <option value="top_rated">Mejor calificadas</option>
-                    </select>
+                        <select
+                            className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none"
+                            value={categoria}
+                            onChange={cambioCategoria}>
+
+                            <option value="popular">Populares</option>
+                            <option value="airing_today">Se emiten hoy</option>
+                            <option value="on_the_air">En el aire acualmente</option>
+                            <option value="top_rated">Mejor calificadas</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className="p-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                    {mostrarMovies.map((pelicula) => (
+                    {seriresFiltradas.map((series) => (
                         <div
-                            key={pelicula.id}
+                            key={series.id}
                             className="rounded-lg bg-white overflow-hidden shadow-lg hover:shadow-blue-600 transition-shadow duration-300 w-full"
                         >
                             <img
-                                src={`https://image.tmdb.org/t/p/w200${pelicula.poster_path}`}
-                                alt={pelicula.title}
+                                src={`https://image.tmdb.org/t/p/w200${series.poster_path}`}
+                                alt={series.title}
                                 className="w-full object-cover"
                             />
                             <div className="p-3">
-                                <p className="font-semibold">{pelicula.name}</p>
-                                <p className="text-sm text-gray-500">{pelicula.first_air_date}</p>
+                                <p className="font-semibold">{series.name}</p>
+                                <p className="text-sm text-gray-500">{series.first_air_date}</p>
                             </div>
                         </div>
                     ))}

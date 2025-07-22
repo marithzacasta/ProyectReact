@@ -6,13 +6,26 @@ export function Movies() {
 
     const [mostrarMovies, setMostrarMovies] = useState([]);
     const [categoria, setCategoria] = useState("popular");
+    const [busqueda, setBusqueda] = useState("");
 
     const navigate = useNavigate();
 
     const cambioCategoria = (e) => {
-        setCategoria(e.target.value)   
+        setCategoria(e.target.value)
     }
 
+    const handleBusqueda = (e) => {
+        setBusqueda(e.target.value);
+    };
+
+    const normalizeText = (text) =>
+        text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    // text.normalize("NFD") separa las letras de los acentos (o `)
+    // .replace(/[\u0300-\u036f]/g, "") se usa para eliminar los caracteres de acento que quedaron sueltos después de la normalización.
+
+    const peliculasFiltradas = mostrarMovies.filter((pelicula) =>
+        normalizeText(pelicula.title).includes(normalizeText(busqueda))
+    ); // una variable que filtre según el texto del buscador:
 
     useEffect(() => {
         const mostrarPopularMovies = async () => {
@@ -41,24 +54,36 @@ export function Movies() {
             <div className="w-full pt-20">
 
                 <div className="flex justify-between items-center px-10 py-5">
-                
+
                     <h1 className=" font-bold text-4xl m-5">Popular Movies</h1>
 
-                    <select
-                        className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none"
-                        value={categoria}
-                        onChange={cambioCategoria}>
+                    <div className="flex flex-col sm:flex-row ">
+                        <input
+                            type="text"
+                            placeholder="Buscar película..."
+                            value={busqueda}
+                            onChange={handleBusqueda}
+                            className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none mb-2 sm:mr-2"
+                        />
 
-                        <option value="popular">Populares</option>
-                        <option value="upcoming">Próximas</option>
-                        <option value="now_playing">En cartelera</option>
-                        <option value="top_rated">Mejor calificadas</option>
-                    </select>
+                        <select
+                            className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none"
+                            value={categoria}
+                            onChange={cambioCategoria}>
+
+                            <option value="popular">Populares</option>
+                            <option value="upcoming">Próximas</option>
+                            <option value="now_playing">En cartelera</option>
+                            <option value="top_rated">Mejor calificadas</option>
+                        </select>
+
+                    </div>
+
                 </div>
 
 
                 <div className="p-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                    {mostrarMovies.map((pelicula) => (
+                    {peliculasFiltradas.map((pelicula) => (
                         <div
                             key={pelicula.id}
                             className="rounded-lg bg-white overflow-hidden shadow-lg hover:shadow-blue-600 transition-shadow duration-300 w-full"
@@ -78,7 +103,6 @@ export function Movies() {
                 </div>
 
 
-               
             </div>
 
         </>
