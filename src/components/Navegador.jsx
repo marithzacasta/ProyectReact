@@ -66,7 +66,7 @@ export function Navegador() {
 
             {/* Menú desplegable en móviles */}
             {menuAbierto && (
-                <div className="md:hidden absolute top-20 left-0 w-full bg-white shadow-md z-40 flex flex-col items-start p-5 gap-2">
+                <div className="md:hidden fixed top-20 left-0 w-full bg-white shadow-md z-40 flex flex-col items-start p-5 gap-2">
                     <Link to="/" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Home </Link>
                     <Link to="/movies" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Movies</Link>
                     <Link to="/series" onClick={cerrarMenu} className="text-lg font-semibold hover:bg-gray-200 w-full h-full p-2">Series</Link>
