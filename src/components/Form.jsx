@@ -21,6 +21,10 @@ export function FormSignIn({ alternarFormulario }) {
         setPassword(e.target.value)
     }
 
+    const handleLogin = () => {
+        window.open('/recoverPassword', '_blank');
+    }
+
     const handleSubmit = async () => {
         try {
             const data = await loginUser(email, password);
@@ -117,7 +121,7 @@ export function FormSignIn({ alternarFormulario }) {
                         <label className="ml-2 font-medium text-base" for="remember">Remember for 30 days</label>
                     </div>
 
-                    <button className="font-medium text-base text-blue-500 underline hover:text-blue-800">Forgot password</button>
+                    <button onClick={handleLogin} className="font-medium text-base text-blue-500 underline hover:text-blue-800">Forgot password</button>
                 </div>
 
                 <div className="mt-8 flex flex-col gap-y-4">

@@ -12,6 +12,10 @@ import { Series } from '../components/Series';
 import { Homee } from '../components/Homee';
 import AboutPage from '../pages/AboutPage';
 import { DetallePelicula } from '../components/DetallePelicula';
+import { DetalleSerie } from '../components/DetalleSerie';
+import { RecoverPassword } from '../pages/RecoverPassword';
+import PasswordNew from '../components/PasswordNew';
+
 
 // Separar tus rutas en un componente como AppRoutes es excelente.
 export default function AppRoutes() {
@@ -22,13 +26,15 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />}>
           <Route index element={<Homee />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/series" element={<Series />} />
           <Route path="/movie/:id" element={<DetallePelicula />} />
-    
+          <Route path="/series" element={<Series />} />
+          <Route path="/serie/:id" element={<DetalleSerie />} />
         </Route>
 
 
-       
+        <Route path="/recoverPassword" element={<RecoverPassword />} />
+        <Route path="/passwordNew" element={<PasswordNew />} />
+
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<Login />} /> {/* Componente que define una ruta (una URL y qué componente mostrar). */}
 

@@ -39,7 +39,6 @@ export function Movies() {
 
                 setMostrarMovies(data.results);
 
-
             } catch (error) {
                 console.error("Error al cargar las películas:", error.message)
             }

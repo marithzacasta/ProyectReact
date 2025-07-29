@@ -1,10 +1,13 @@
 import { PopularSeriesTMDB, TopRatedSeriesTMDB, OnTheAirSeriesTMDB, AiringTodaySeriesTMDB } from "../api/tmdbApi";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Series() {
     const [mostrarSeries, setMsotrarSeries] = useState([]);
     const [categoria, setCategoria] = useState("popular")
     const [busqueda, setBusqueda] = useState("");
+
+    const navigate = useNavigate();
 
     const cambioCategoria = (e) => {
         setCategoria(e.target.value)
@@ -27,7 +30,6 @@ export function Series() {
     useEffect(() => {
         const mostrarPopularMovies = async () => {
             try {
-
                 let data;
 
                 if (categoria === "popular") data = await PopularSeriesTMDB();
@@ -35,8 +37,9 @@ export function Series() {
                 else if (categoria === "on_the_air") data = await OnTheAirSeriesTMDB();
                 else if (categoria === "top_rated") data = await TopRatedSeriesTMDB();
 
-
                 setMsotrarSeries(data.results);
+                console.log(data.results);
+                
 
             } catch (error) {
                 console.error("Error al cargar las películas:", error.message)
@@ -86,6 +89,7 @@ export function Series() {
                                 src={`https://image.tmdb.org/t/p/w200${series.poster_path}`}
                                 alt={series.title}
                                 className="w-full object-cover"
+                                onClick={() => navigate(`/serie/${series.id}`)}
                             />
                             <div className="p-3">
                                 <p className="font-semibold">{series.name}</p>

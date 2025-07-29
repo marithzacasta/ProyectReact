@@ -186,6 +186,27 @@ export const AiringTodaySeriesTMDB = async () => {
     }
 };
 
+export const showEachSeriesTMDB = async (id) => {
+
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY_TMDB}&language=es`);
+
+        const data = await response.json()
+
+        if (!response.ok) {
+            throw new Error(data.status_message || 'Error al obtener los detalles de la serie de TMDB')
+        }
+
+        return data;
+    } catch (error) {
+
+        console.error("Error in fetchTMDB:", error.message)
+        throw error;
+    }
+
+
+}
+
 export const GenreListTMDB = async () => {
     try {
         const response = await fetch(
