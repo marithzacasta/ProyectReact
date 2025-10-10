@@ -76,8 +76,14 @@ export function FormRegister({ alternarFormulario }) {
             Swal.fire({
                 title: "Registered successfully",
                 text: "You can now log in",
-                icon: "success"
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
             });
+
+            setTimeout(() => {
+                alternarFormulario(); // cambia la vista al formulario de login
+            }, 2000);
 
 
         } catch (err) {

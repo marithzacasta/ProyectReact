@@ -15,7 +15,7 @@ import { DetallePelicula } from '../components/DetallePelicula';
 import { DetalleSerie } from '../components/DetalleSerie';
 import { RecoverPassword } from '../pages/RecoverPassword';
 import PasswordNew from '../components/PasswordNew';
-
+import { EnCartelera } from '../components/EnCartelera'
 
 // Separar tus rutas en un componente como AppRoutes es excelente.
 export default function AppRoutes() {
@@ -45,6 +45,7 @@ export default function AppRoutes() {
             <Route index element={<Dashboard />} /> {/* Ruta por defecto */}
             <Route path="popular" element={<PopularMovie />} />
             <Route path="favorites" element={<Favorites />} />
+            <Route path="encartelera" element={<EnCartelera />} />
           </Route>
         </Route>
 

@@ -104,40 +104,37 @@ export function FormSignIn({ alternarFormulario }) {
             <h1 className="text-5xl font-semibold">Welcome Back!</h1>
             <p className="font-medium text-lg text-gray-500 mt-4">Welcome Back! Please enter your details.</p>
 
+            <div className='bg-gray-100 mt-5 border-gray-300 border-solid border-2 rounded-md p-3 text-gray-500 text-center flex flex-col'>
+                <label htmlFor=""><b>Email:</b> admin@gmail.com</label>
+                <label htmlFor=""><b>Password:</b> 123Admin</label>
+            </div>
+
             <div className="mt-8">
 
                 <div>
                     <label className="text-lg font-medium">Email</label>
                     <input value={email} onChange={modificarEmail} className={`w-full border-2 ${InputEmailColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100'} rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="email" placeholder="Enter your email" />
                 </div>
-                <div>
-                    <label className="text-lg font-medium">Password</label>
+                <div className='mt-3'>
+                    <label className="text-lg font-medium ">Password</label>
                     <input value={password} onChange={modificarPassword} className={`w-full border-2 ${InputPasswordColor ? 'border-red-300 bg-red-100 shadow shadow-red-400' : 'border-gray-100'} rounded-xl p-3 mt-1 bg-transparent outline-none focus:border-violet-300`} type="password" placeholder="Enter your password" />
-                </div>
-
-                <div className="mt-8 flex justify-between items-center">
-                    <div>
-                        <input type="checkbox" id="remember" />
-                        <label className="ml-2 font-medium text-base" for="remember">Remember for 30 days</label>
-                    </div>
-
-                    <button onClick={handleLogin} className="font-medium text-base text-blue-500 underline hover:text-blue-800">Forgot password</button>
                 </div>
 
                 <div className="mt-8 flex flex-col gap-y-4">
 
                     <button onClick={handleSubmit} className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-2 rounded-xl bg-blue-500 text-white text-lg font-bold">Sign in</button>
 
-                    <button className="flex rounded-xl border-2 border-gray-100 items-center justify-center gap-1 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out">
-                        <img className="scale-50" src="https://img.icons8.com/color/48/000000/google-logo.png" />
-                        Sign in with google
-                    </button>
                 </div>
 
-                <div className="mt-8 flex justify-center items-center">
+                
+                {/* <div className="mt-8 flex justify-center items-center">
+                    <button onClick={handleLogin} className="font-medium text-base text-purple-500 underline hover:text-purple-800">Forgot password</button>
+                </div> */}
+
+                {/* <div className="mt-8 flex justify-center items-center">
                     <p className="font-medium text-base">Don't have an acoount?</p>
                     <button onClick={alternarFormulario} className="text-blue-500 text-base font-medium ml-2 underline hover:text-blue-800">Sign up</button>
-                </div>
+                </div> */}
 
             </div>
 

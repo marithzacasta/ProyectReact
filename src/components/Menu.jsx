@@ -1,4 +1,4 @@
-import { LayoutDashboard, Heart, SquareChartGantt, Clapperboard, LogOut } from "lucide-react";
+import { LayoutDashboard, Heart, Crown, Clapperboard, LogOut, Film } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -73,7 +73,7 @@ export function Menu() {
 
                     <Link to="/dashboardPage/popular">
                         <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
-                            <SquareChartGantt className="w-6 h-6 text-gray-600" />
+                            <Crown className="w-6 h-6 text-gray-600" />
                             {open && <span className="font-semibold ml-3 text-gray-600">Popular Movies</span>}
                         </li>
                     </Link>
@@ -81,8 +81,14 @@ export function Menu() {
                     <Link to="/dashboardPage/favorites">
                         <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
                             <Heart className="w-6 h-6 text-gray-600" />
-
                             {open && <span className="font-semibold ml-3 text-gray-600">Top_Rated Movies</span>}
+                        </li>
+                    </Link>
+
+                    <Link to="/dashboardPage/encartelera">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <Film className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Now playing Movies</span>}
                         </li>
                     </Link>
 

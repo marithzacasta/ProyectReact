@@ -1,18 +1,31 @@
 import { Film } from "lucide-react";
 import { useEffect, useState } from "react";
-import { TopRatedMoviesTMDB } from "../api/tmdbApi";
+import { TopRatedMoviesTMDB, PopularMoviesTMDB } from "../api/tmdbApi";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    CartesianGrid,
+    ResponsiveContainer,
+    Legend,
+} from "recharts";
 
 export function Favorites() {
 
     const [TopRated, sertTopRated] = useState([]);
+    const [popular, setPopular] = useState([]);
 
     useEffect(() => {
         const mostrarTopRated = async () => {
             try {
-                const data = await TopRatedMoviesTMDB();
-                sertTopRated(data.results);
-                console.log(data.results); // Verifica la estructura de datos
-                
+                const dataRated = await TopRatedMoviesTMDB();
+                sertTopRated(dataRated.results.slice(0, 10));
+                const dataPopular = await PopularMoviesTMDB();
+                setPopular(dataPopular.results.slice(0, 10));
+                // console.log(data.results); // Verifica la estructura de datos
+
 
             } catch (error) {
                 console.error("Error al cargar las películas mejor valoradas:", error.message);
@@ -24,61 +37,74 @@ export function Favorites() {
 
     }, [])
 
+    // Gráfica comparativa
+    const compareData = TopRated.map((movie, index) => ({
+        title: movie.title,
+        MejorValoradas: movie.vote_average,
+        Populares: popular[index]?.vote_average || 0,
+    }));
+
 
     return (
 
         <div className="w-full py-10 px-7 lg:px-20">
             <div className="flex justify-between mb-10 ">
-                <h2 className="font-bold text-4xl">Favorite Movies</h2>
+                <h2 className="font-bold text-4xl"> 🏆 Favorite Movies</h2>
             </div>
 
-            {/* Contenido del Manage */}
-            <div className="flex justify-center ">
-                <table className="w-full table-auto shadow bg-white rounded-lg ">
-                    <thead className=" text-left border-b">
-                        <tr>
-                            <th className="p-3 font-medium text-sm text-gray-700">Movie</th>
-                            <th className="p-3 font-medium text-sm text-gray-700 hidden md:table-cell">Category</th>
-                            <th className="p-3 font-medium text-sm text-gray-700">Date</th>
-                            <th className="p-3 font-medium text-sm text-gray-700 hidden md:table-cell">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 ">
-
-                        {TopRated.map((movie) => (
-                            <tr className="hover:bg-gray-50">
-                                <td className="p-3 flex items-center gap-3">
-                                    <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="w-10 h-10 object-cover" />
-                                    <div>
-                                        <div className="font-medium text-gray-800">{movie.title}</div>
-                                        <div className="text-sm text-gray-500"> {movie.overview}</div>
-                                    </div>
-                                </td>
-                                <td className="p-2 md:p-4 space-x-2 hidden md:table-cell">
-                                    <div className="flex flex-wrap gap-1">
-
-                                        <span className={`text-xs font-semibold px-2 py-1 rounded-full`}>
-                                            holaaa
-                                        </span>
-
-                                    </div>
-                                </td>
-                                <td className="p-2 md:p-4 text-gray-700">{movie.release_date}</td>
-                                <td className="p-2 md:p-4 text-center space-x-2 hidden md:table-cell">
-                                    <button className="text-blue-600 hover:text-green-600"><Film size={16} /></button>
-                                </td>
-                            </tr>
-                        ))}
-
-
-
-
-                    </tbody>
-                </table>
-
-
-
+            {/* 🏆 Top 10 Mejor Valoradas */}
+            <div className="bg-white p-6 rounded-lg shadow-xl border border-gray-100 mb-5">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Top 10 Mejor Valoradas</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    {TopRated.map((movie) => (
+                        <div
+                            key={movie.id}
+                            className="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-md transition"
+                        >
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                                className="h-64 w-full object-cover"
+                            />
+                            <div className="p-3 text-center">
+                                <h3 className="text-sm font-semibold text-gray-700 line-clamp-2">
+                                    {movie.title}
+                                </h3>
+                                <p className="text-gray-500 text-xs mt-1">
+                                    ❤️ <b>{movie.vote_average}</b> | {movie.release_date}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
+
+            {/* 📊 Comparativa Populares vs Mejor Valoradas */}
+            <div className="bg-white shadow-md rounded-2xl p-6">
+                <h2 className="text-xl font-bold mb-4 text-center">📈 Comparativa: Populares vs Mejor Valoradas</h2>
+                <ResponsiveContainer width="100%" height={400}>
+                    <BarChart data={compareData} margin={{ bottom: 50 }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis
+                            dataKey="title"
+                            tickFormatter={(value) =>
+                                value.length > 15 ? value.slice(0, 15) + "..." : value
+                            }
+                            tick={{ fontSize: 12 }}
+                            interval={0}
+                            angle={-35}
+                            textAnchor="end"
+                            height={70}
+                        />
+                        <YAxis domain={[0, 10]} />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="MejorValoradas" fill="#10b981" radius={[8, 8, 0, 0]} />
+                        <Bar dataKey="Populares" fill="#3b82f6" radius={[8, 8, 0, 0]} />
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+
 
         </div>
 

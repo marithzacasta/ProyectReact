@@ -105,7 +105,7 @@ export function Dashboard() {
                 </div>
 
 
-                {/* Usuarios Registrados */}
+               
                 <div className="grid gap-5 md:grid-cols-2 " >
 
                     <div className="bg-white shadow-xl border border-gray-100 rounded-lg md:row-span-2 h-96 md:h-[540px]">

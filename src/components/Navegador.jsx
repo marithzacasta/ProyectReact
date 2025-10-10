@@ -41,7 +41,7 @@ export function Navegador() {
                     <Lottie animationData={MovieClapper} loop={true} className="w-10 h-10 " />
                 </div>
 
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-3 md:gap-5">
                     <Link to="/">
                         <a href="#" className="text-lg font-semibold hover:text-blue-800 hidden md:block">Home</a>
                     </Link>
