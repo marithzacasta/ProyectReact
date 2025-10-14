@@ -7,6 +7,8 @@ export function Movies() {
     const [mostrarMovies, setMostrarMovies] = useState([]);
     const [categoria, setCategoria] = useState("popular");
     const [busqueda, setBusqueda] = useState("");
+    const [error, setError] = useState([]);
+
 
     const navigate = useNavigate();
 
@@ -40,7 +42,8 @@ export function Movies() {
                 setMostrarMovies(data.results);
 
             } catch (error) {
-                console.error("Error al cargar las películas:", error.message)
+                console.error("Error loading Movies listing:", error.message)
+                setError("The Movies listings could not be loaded");
             }
         }
 
@@ -56,10 +59,12 @@ export function Movies() {
 
                     <h1 className=" font-bold text-4xl m-5">Popular Movies</h1>
 
+                    {error && <p className="text-red-500 m-10">{error}</p>}
+
                     <div className="flex flex-col sm:flex-row ">
                         <input
                             type="text"
-                            placeholder="Buscar película..."
+                            placeholder="Search Movie..."
                             value={busqueda}
                             onChange={handleBusqueda}
                             className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none mb-2 sm:mr-2"
@@ -70,10 +75,10 @@ export function Movies() {
                             value={categoria}
                             onChange={cambioCategoria}>
 
-                            <option value="popular">Populares</option>
-                            <option value="upcoming">Próximas</option>
-                            <option value="now_playing">En cartelera</option>
-                            <option value="top_rated">Mejor calificadas</option>
+                            <option value="popular">Popular</option>
+                            <option value="upcoming">Up Coming</option>
+                            <option value="now_playing">Now Playing </option>
+                            <option value="top_rated">Top Rated</option>
                         </select>
 
                     </div>

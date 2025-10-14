@@ -18,8 +18,8 @@ export function PopularMovie() {
                 setTotalResults(data.total_results); // Total de películas populares
 
             } catch (error) {
-                console.error("Error al cargar las películas:", error.message);
-                setError("No se pudieron cargar las películas");
+                console.error("Error loading Movies listing:", error.message)
+                setError("The Movies listings could not be loaded");
             }
         };
 
@@ -74,8 +74,7 @@ export function PopularMovie() {
                     {peliculas.map((movie) => (
                         <div
                             key={movie.id}
-                            className="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-md transition"
-                        >
+                            className="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-md transition">
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                 alt={movie.title}

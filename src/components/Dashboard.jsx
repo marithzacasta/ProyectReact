@@ -35,7 +35,7 @@ export function Dashboard() {
             try {
                 const data = await UpcomingReleasesMoviesTMDB();
                 setLanzamientos(data.results); // Asumiendo que quieres la lista de lanzamientos
-                console.log(data.results); // Verifica la estructura de datos
+                // console.log(data.results); // Verifica la estructura de datos
 
             } catch (error) {
                 console.error("Error al cargar las próximas fechas:", error.message);

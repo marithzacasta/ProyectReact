@@ -1,4 +1,4 @@
-import { LayoutDashboard, Heart, Crown, Clapperboard, LogOut, Film } from "lucide-react";
+import { LayoutDashboard, Heart, Crown, Clapperboard, LogOut, Film, CalendarPlus, Drama, ListCollapse, Grid3x3 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -89,6 +89,34 @@ export function Menu() {
                         <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
                             <Film className="w-6 h-6 text-gray-600" />
                             {open && <span className="font-semibold ml-3 text-gray-600">Now playing Movies</span>}
+                        </li>
+                    </Link>
+
+                    <Link to="/dashboardPage/upcomingmovies">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <CalendarPlus className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Up Coming Movies</span>}
+                        </li>
+                    </Link>
+
+                    <Link to="/dashboardPage/genres">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <Drama className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Genres</span>}
+                        </li>
+                    </Link>
+
+                    <Link to="/dashboardPage/movielist">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <ListCollapse className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Movie Details</span>}
+                        </li>
+                    </Link>
+
+                    <Link to="/dashboardPage/seriepage">
+                        <li className={`flex px-4 py-4 hover:bg-gray-200 cursor-pointer transition-all duration-300 ${open ? "items-center justify-start gap-3" : "justify-center"}`}>
+                            <Grid3x3 className="w-6 h-6 text-gray-600" />
+                            {open && <span className="font-semibold ml-3 text-gray-600">Serie Details</span>}
                         </li>
                     </Link>
 

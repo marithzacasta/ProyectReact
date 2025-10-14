@@ -133,13 +133,13 @@ const AboutPage = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <a
+                {/* <a
                   href={`mailto:marithzacastano9.5@gmail.com?subject=Contacto desde mi página&body=Hola, quiero ponerme en contacto contigo.`}
                   className="flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl hover:bg-blue-400 transition-colors"
                 >
                   <Globe size={18} />
                   <span>Enviar Email</span>
-                </a>
+                </a> */}
 
                 <button onClick={handleCV} className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-xl hover:bg-blue-400 transition-colors">
                   <ArrowDownToLine size={18} />

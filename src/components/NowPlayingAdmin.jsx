@@ -31,13 +31,14 @@ export function EnCartelera() {
                 }).length;
 
                 setChartData([
-                    { mes: "Mes anterior", peliculas: countLastMonth },
-                    { mes: "Mes actual", peliculas: countThisMonth },
+                    { mes: "Previous month", peliculas: countLastMonth },
+                    { mes: "Current month", peliculas: countThisMonth },
                 ]);
 
             } catch (error) {
-                console.error("Error al cargar las películas:", error.message);
-                setError("No se pudieron cargar las películas");
+                console.error("Error loading Movies listing:", error.message)
+                setError("The Movies listings could not be loaded");
+               
             }
         };
 
@@ -49,7 +50,7 @@ export function EnCartelera() {
 
         <div className="w-full py-10 px-7 lg:px-20">
             <div className="flex justify-between mb-10 ">
-                <h2 className="font-bold text-4xl"> 🎬 Películas en cartelera</h2>
+                <h2 className="font-bold text-4xl"> 🎬 Movies Now Playing</h2>
 
             </div>
 
@@ -60,7 +61,7 @@ export function EnCartelera() {
 
             {/* 🎥 Películas en cartelera */}
             <div className="bg-white p-6 rounded-lg shadow-xl border border-gray-100 mb-5">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Películas en cartelera</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Movies in Theaters</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                     {nowPlaying.map((movie) => (
                         <div
@@ -88,7 +89,7 @@ export function EnCartelera() {
             {/* 📊 Comparativa de estrenos */}
             <div className="bg-white shadow-md rounded-2xl p-6">
                 <h2 className="text-xl font-bold mb-4 text-center">
-                    📈 Comparación de estrenos (Mes actual vs anterior)
+                    📈 Comparison of releases (Current vs. previous month)
                 </h2>
                 <ResponsiveContainer width="100%" height={350}>
                     <BarChart data={chartData}>

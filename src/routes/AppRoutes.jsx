@@ -3,19 +3,25 @@ import Login from '../pages/Login';
 import DashboardPage from '../pages/Admin/DashboardPage';
 import Error404 from '../pages/Error404';
 import { Dashboard } from '../components/Dashboard';
-import { PopularMovie } from '../components/PopularMovie';
-import { Favorites } from '../components/Favorites';
+import { PopularMovie } from '../components/PopularMovieAdmin';
+import { Favorites } from '../components/FavoritesAdmin';
 import PrivateRoute from '../components/PrivateRoute'; // Componente para proteger rutas privadas
 import { Home } from '../pages/Home';
 import { Movies } from '../components/Movies';
 import { Series } from '../components/Series';
 import { Homee } from '../components/Homee';
 import AboutPage from '../pages/AboutPage';
-import { DetallePelicula } from '../components/DetallePelicula';
-import { DetalleSerie } from '../components/DetalleSerie';
+import { DetallePelicula } from '../components/DetailsMovie';
+import { DetalleSerie } from '../components/DetailsSeries';
 import { RecoverPassword } from '../pages/RecoverPassword';
 import PasswordNew from '../components/PasswordNew';
-import { EnCartelera } from '../components/EnCartelera'
+import { EnCartelera } from '../components/NowPlayingAdmin'
+import { UpcomingMovies } from '../components/UpcomingMoviesAdmin'
+import { Genres } from '../components/GenresAdmin'
+import { DetailsPelicula2 } from '../components/DetailsMovieAdmin'
+import { MovieList } from '../components/MovieList'
+import { SeriesPage } from '../components/SeriesPagesAdmin'
+import { DetailsSerie } from '../components/DetailsSeriesAdmin'
 
 // Separar tus rutas en un componente como AppRoutes es excelente.
 export default function AppRoutes() {
@@ -46,6 +52,13 @@ export default function AppRoutes() {
             <Route path="popular" element={<PopularMovie />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="encartelera" element={<EnCartelera />} />
+            <Route path="upcomingmovies" element={<UpcomingMovies />} />
+            <Route path="genres" element={<Genres />} />
+            <Route path="movielist" element={<MovieList />} />
+            <Route path="movielist/detallespeliculas2/:id" element={<DetailsPelicula2 />} />
+            <Route path="seriepage" element={<SeriesPage />} />
+            <Route path="seriepage/detailserie/:id" element={<DetailsSerie />} />
+
           </Route>
         </Route>
 

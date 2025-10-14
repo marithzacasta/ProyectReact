@@ -104,6 +104,51 @@ export const showEachMoviesTMDB = async (id) => {
 }
 
 
+export const showEachVideosMoviesTMDB = async (id) => {
+
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY_TMDB}&language=es`);
+
+        const data = await response.json()
+
+        if (!response.ok) {
+            throw new Error(data.status_message || 'Error al obtener los videos de la película de TMDB')
+        }
+
+        return data;
+    } catch (error) {
+
+        console.error("Error in fetchTMDB:", error.message)
+        throw error;
+    }
+
+
+}
+
+
+
+export const showEachReviewMoviesTMDB = async (id) => {
+
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY_TMDB}&language=es`);
+
+        const data = await response.json()
+
+        if (!response.ok) {
+            throw new Error(data.status_message || 'Error al obtener los reviews de la película de TMDB')
+        }
+
+        return data;
+    } catch (error) {
+
+        console.error("Error in fetchTMDB:", error.message)
+        throw error;
+    }
+
+
+}
+
+
 
 // SERIES
 export const PopularSeriesTMDB = async () => {
@@ -206,6 +251,48 @@ export const showEachSeriesTMDB = async (id) => {
 
 
 }
+
+
+export const showEachVideosSeriesTMDB = async (id) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY_TMDB}&language=es`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.status_message || 'Error al obtener los videos de la serie de TMDB');
+        }
+
+        return data;
+    } catch (error) {
+        console.error("Error al obtener videos de la serie:", error.message);
+        throw error;
+    }
+};
+
+
+export const showEachReviewSeriesTMDB = async (id) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${API_KEY_TMDB}&language=es`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.status_message || 'Error al obtener los reviews de la serie de TMDB');
+        }
+
+        return data;
+    } catch (error) {
+        console.error("Error al obtener reviews de la serie:", error.message);
+        throw error;
+    }
+};
+
+
 
 export const GenreListTMDB = async () => {
     try {

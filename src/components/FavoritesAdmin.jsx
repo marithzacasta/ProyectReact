@@ -16,6 +16,7 @@ export function Favorites() {
 
     const [TopRated, sertTopRated] = useState([]);
     const [popular, setPopular] = useState([]);
+    const [error, setError] = useState([]);
 
     useEffect(() => {
         const mostrarTopRated = async () => {
@@ -28,7 +29,9 @@ export function Favorites() {
 
 
             } catch (error) {
-                console.error("Error al cargar las películas mejor valoradas:", error.message);
+                console.error("Error loading Movies listing:", error.message)
+                setError("The Movies listings could not be loaded");
+                
             }
 
         }
@@ -52,9 +55,11 @@ export function Favorites() {
                 <h2 className="font-bold text-4xl"> 🏆 Favorite Movies</h2>
             </div>
 
+            {error && <p className="text-red-500">{error}</p>}
+
             {/* 🏆 Top 10 Mejor Valoradas */}
             <div className="bg-white p-6 rounded-lg shadow-xl border border-gray-100 mb-5">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Top 10 Mejor Valoradas</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Top 10 Best Rated</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                     {TopRated.map((movie) => (
                         <div
@@ -81,7 +86,7 @@ export function Favorites() {
 
             {/* 📊 Comparativa Populares vs Mejor Valoradas */}
             <div className="bg-white shadow-md rounded-2xl p-6">
-                <h2 className="text-xl font-bold mb-4 text-center">📈 Comparativa: Populares vs Mejor Valoradas</h2>
+                <h2 className="text-xl font-bold mb-4 text-center">📈 Comparison: Popular vs. Top Rated</h2>
                 <ResponsiveContainer width="100%" height={400}>
                     <BarChart data={compareData} margin={{ bottom: 50 }}>
                         <CartesianGrid strokeDasharray="3 3" />

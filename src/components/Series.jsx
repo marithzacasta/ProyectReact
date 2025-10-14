@@ -6,6 +6,7 @@ export function Series() {
     const [mostrarSeries, setMsotrarSeries] = useState([]);
     const [categoria, setCategoria] = useState("popular")
     const [busqueda, setBusqueda] = useState("");
+    const [error, setError] = useState([]);
 
     const navigate = useNavigate();
 
@@ -42,7 +43,8 @@ export function Series() {
                 
 
             } catch (error) {
-                console.error("Error al cargar las películas:", error.message)
+                console.error("Error loading series listing:", error.message)
+                setError("The series listings could not be loaded");
             }
         }
 
@@ -57,10 +59,12 @@ export function Series() {
                 <div className="flex justify-between items-center px-10 py-5">
                     <h1 className=" font-bold text-4xl m-5">Popular Series</h1>
 
+                    {error && <p className="text-red-500 m-10">{error}</p>}
+
                     <div className="flex flex-col sm:flex-row ">
                         <input
                             type="text"
-                            placeholder="Buscar Serie..."
+                            placeholder="Search Serie..."
                             value={busqueda}
                             onChange={handleBusqueda}
                             className="border border-gray-300 rounded p-2 text-sm h-10 focus:border-blue-500 focus:outline-none mb-2 sm:mr-2"
@@ -71,10 +75,10 @@ export function Series() {
                             value={categoria}
                             onChange={cambioCategoria}>
 
-                            <option value="popular">Populares</option>
-                            <option value="airing_today">Se emiten hoy</option>
-                            <option value="on_the_air">En el aire acualmente</option>
-                            <option value="top_rated">Mejor calificadas</option>
+                            <option value="popular">Popular</option>
+                            <option value="airing_today">Airing Today</option>
+                            <option value="on_the_air">On the Air</option>
+                            <option value="top_rated">Top Rated</option>
                         </select>
                     </div>
                 </div>
