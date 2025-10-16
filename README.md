@@ -39,7 +39,7 @@ npm install
 
 - Crear el archivo .env en la raíz del proyecto con tu API key de TMDb
 VITE_API_URL = http://localhost:4000
-VITE_API_KEY_TMDB = d26f471083cc40dad45fc838fa21355d
+VITE_API_KEY_TMDB = TU_API_KEY_DE_TMDB
 
 - Iniciar el servidor de desarrollo
 npm run dev
