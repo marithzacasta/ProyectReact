@@ -97,9 +97,7 @@ export function DetallePelicula() {
             try {
                 const data = await showEachMoviesTMDB(id);
                 setPelicula(data);
-
-                console.log(data);
-
+                //console.log(data);
 
             } catch (error) {
                 console.error("Error al cargar detalles:", error);
@@ -130,7 +128,7 @@ export function DetallePelicula() {
                     <h1 className="font-bold text-4xl mb-5">{pelicula.title}</h1>
                     <p className="text-gray-700">{pelicula.overview}</p>
 
-                    <p className=" mt-5 font-semibold text-2xl"> 🎭 Genders:</p>
+                    <p className=" mt-5 font-semibold text-2xl">🎭 Genders:</p>
                     <div className="flex flex-wrap gap-3 my-5">
                         {pelicula.genres.map((g) => (
                             <span key={g.id} className={`${obtenerClaseGenero(g.name)} text-xs font-semibold px-2 py-1 rounded-full`}>
@@ -143,14 +141,18 @@ export function DetallePelicula() {
                     <p className="text-gray-600 mt-2 "> <b>Vote Average:</b> {pelicula.vote_average}</p>
 
                     <h2 className="text-2xl font-bold my-5 ">🎞️ Tráiler</h2>
-                    <iframe
-                        width="100%"
-                        height="400"
-                        src={`https://www.youtube.com/embed/${trailer.key}`}
-                        title="Trailer"
-                        allowFullScreen
-                        className="rounded-lg"
-                    ></iframe>
+                    {trailer ? (
+                        <iframe
+                            width="100%"
+                            height="400"
+                            src={`https://www.youtube.com/embed/${trailer.key}`}
+                            title="Trailer"
+                            allowFullScreen
+                            className="rounded-lg "
+                        ></iframe>
+                    ) : (
+                        <p className="text-gray-500">No trailer available.</p>
+                    )}
 
                     <h2 className="text-2xl font-bold my-5 ">📝 Reviews</h2>
                     {reviews.length > 0 ? (

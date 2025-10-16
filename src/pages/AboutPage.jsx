@@ -41,6 +41,11 @@ const AboutPage = () => {
       description: "Librería de iconos SVG optimizados para React",
       icon: "🎯"
     },
+     {
+      name: "Recharts",
+      description: "Librería para crear gráficos interactivos y animados en React",
+      icon: "📊"
+    },
     {
       name: "SweetAlert",
       description: "Librería para modales y alertas elegantes y personalizables",

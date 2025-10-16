@@ -23,7 +23,7 @@ export function Homee() {
 
                         {/* Tarjeta 1 */}
 
-                        <div className="relative w-[350px] h-60 rounded-lg overflow-hidden shadow-xl border border-gray-100 group">
+                        {/* <div className="relative w-[350px] h-60 rounded-lg overflow-hidden shadow-xl border border-gray-100 group">
                             <img
                                 src="/img/pocorn.jpg"
                                 alt="Movie"
@@ -35,7 +35,7 @@ export function Homee() {
                                     Watch
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Tarjeta 2 */}
 

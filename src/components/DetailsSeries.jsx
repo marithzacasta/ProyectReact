@@ -148,14 +148,18 @@ export function DetalleSerie() {
 
 
                     <h2 className="text-2xl font-bold my-5 ">🎞️ Tráiler</h2>
-                    <iframe
-                        width="100%"
-                        height="400"
-                        src={`https://www.youtube.com/embed/${trailer.key}`}
-                        title="Trailer"
-                        allowFullScreen
-                        className="rounded-lg"
-                    ></iframe>
+                    {trailer ? (
+                        <iframe
+                            width="100%"
+                            height="400"
+                            src={`https://www.youtube.com/embed/${trailer.key}`}
+                            title="Trailer"
+                            allowFullScreen
+                            className="rounded-lg "
+                        ></iframe>
+                    ) : (
+                        <p className="text-gray-500">No trailer available.</p>
+                    )}
 
                     <h2 className="text-2xl font-bold my-5 ">📝 Reviews</h2>
                     {reviews.length > 0 ? (

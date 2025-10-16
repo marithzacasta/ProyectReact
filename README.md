@@ -1,12 +1,59 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎬 CineGalaxy - FRONTEND
 
-Currently, two official plugins are available:
+Este proyecto fue desarrollado para **practicar React** y aprender a **consumir APIs externas**, en este caso, la API pública de [The Movie Database (TMDb)](https://www.themoviedb.org/).  
+La aplicación muestra información de películas populares y permite explorar detalles de cada una con una interfaz moderna e interactiva.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- **React + Vite** 
+- **TailwindCSS**
+- **React Router DOM**
+- **SweetAlert2**
+- **Recharts**
+- **Lucide React**
+- **dotenv**
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧩 Funcionalidades principales
+
+- Mostrar películas populares desde la API de TMDb.
+
+- Navegación entre vistas con React Router DOM.
+
+- Alertas personalizadas con SweetAlert2.
+
+- Visualización de datos con Recharts.
+
+- Diseño moderno, responsive y dinámico con TailwindCSS.
+
+## ▶️ Ejecución
+
+- Clonar el repositorio
+git clone https://github.com/tuusuario/cineapp-frontend.git
+
+- Instalar dependencias
+npm install
+
+- Crear el archivo .env en la raíz del proyecto con tu API key de TMDb
+VITE_API_KEY=TU_API_KEY
+
+- Iniciar el servidor de desarrollo
+npm run dev
+
+
+## ## 🧠 Aprendizajes obtenidos
+
+Uso de componentes, hooks y rutas en React.
+
+Consumo de APIs externas con manejo de estados.
+
+Implementación de librerías modernas para mejorar la UI/UX.
+
+Uso de Vite y TailwindCSS para optimizar el desarrollo.
+
+## 🧑‍💻 Desarrollado por
+
+- [@MarithzaCastaño] Proyecto realizado con fines educativos para practicar React y consumo de APIs externas.
+
+
+

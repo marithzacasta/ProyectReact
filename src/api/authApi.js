@@ -110,27 +110,3 @@ export const registerUser = async (names, lastNames, email, password) => {
 
 }
 
-export const mostrar = async () => {
-    try {
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
-    
-        const response = await fetchWithRefresh(`${API_URL}/api/listar`, options);
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.message || 'Error al listar usuarios');
-        }
-
-        return data;
-
-    } catch (error) {
-        console.error('Error al mostrar usuarios:', error.message);
-        throw error;
-    }
-};
-
