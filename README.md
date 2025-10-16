@@ -62,17 +62,17 @@ Uso de Vite y TailwindCSS para optimizar el desarrollo.
 ![Página principal](./src/assets/images/home.png)
 
 ### Detalles de película
-![Detalles de película](./assets/images/homeMovies.png)
+![Detalles de película](./src/assets/images/homeMovies.png)
 
-![Detalles de una película](./assets/images/homeMovieVista.png)
+![Detalles de una película](./src/assets/images/homeMovieVista.png)
 
 ### Login de administrador
-![Login](./assets/images/login.png)
+![Login](./src/assets/images/login.png)
 
 ### Dashboard del administrador
-![Dashboard Pricipal](./assets/images/dashboardAdmin.png)
+![Dashboard Pricipal](./src/assets/images/dashboardAdmin.png)
 
-![Dashboard Seies](./assets/images/dashboardSeriesDetails.png)
+![Dashboard Seies](./src/assets/images/dashboardSeriesDetails.png)
 
 
 ## 🧑‍💻 Desarrollado por
