@@ -41,7 +41,7 @@ VITE_API_KEY=TU_API_KEY
 npm run dev
 
 
-## ## 🧠 Aprendizajes obtenidos
+## 🧠 Aprendizajes obtenidos
 
 Uso de componentes, hooks y rutas en React.
 
