@@ -35,7 +35,8 @@ git clone https://github.com/tuusuario/cineapp-frontend.git
 npm install
 
 - Crear el archivo .env en la raíz del proyecto con tu API key de TMDb
-VITE_API_KEY=TU_API_KEY
+VITE_API_URL = http://localhost:4000
+VITE_API_KEY_TMDB = d26f471083cc40dad45fc838fa21355d
 
 - Iniciar el servidor de desarrollo
 npm run dev
@@ -53,7 +54,7 @@ Uso de Vite y TailwindCSS para optimizar el desarrollo.
 
 ## 🧑‍💻 Desarrollado por
 
-- [@MarithzaCastaño] Proyecto realizado con fines educativos para practicar React y consumo de APIs externas.
+- [@marithzacast] Proyecto realizado con fines educativos para practicar React y consumo de APIs externas.
 
 
 
