@@ -4,6 +4,7 @@
 Este proyecto fue desarrollado para **practicar React** y aprender a **consumir APIs externas**, en este caso, la API pública de [The Movie Database (TMDb)](https://www.themoviedb.org/).  
 La aplicación muestra información de películas populares y permite explorar detalles de cada una con una interfaz moderna e interactiva.
 
+
 ## 🚀 Tecnologías utilizadas
 
 - **React + Vite** 
@@ -13,6 +14,7 @@ La aplicación muestra información de películas populares y permite explorar d
 - **Recharts**
 - **Lucide React**
 - **dotenv**
+
 
 ## 🧩 Funcionalidades principales
 
@@ -26,10 +28,11 @@ La aplicación muestra información de películas populares y permite explorar d
 
 - Diseño moderno, responsive y dinámico con TailwindCSS.
 
-## ▶️ Ejecución
+
+## ▶️ Ejecución Localmente
 
 - Clonar el repositorio
-git clone https://github.com/tuusuario/cineapp-frontend.git
+git clone https://github.com/marithzacasta/ProyectReact.git
 
 - Instalar dependencias
 npm install
@@ -52,9 +55,29 @@ Implementación de librerías modernas para mejorar la UI/UX.
 
 Uso de Vite y TailwindCSS para optimizar el desarrollo.
 
+
+## 🖥️ Vista general del proyecto
+
+### Página principal
+![Página principal](./assets/images/home.png)
+
+### Detalles de película
+![Detalles de película](./assets/images/homeMovies.png)
+
+![Detalles de una película](./assets/images/homeMovieVista.png)
+
+### Login de administrador
+![Login](./assets/images/login.png)
+
+### Dashboard del administrador
+![Dashboard Pricipal](./assets/images/dashboardAdmin.png)
+
+![Dashboard Seies](./assets/images/dashboardSeriesDetails.png)
+
+
 ## 🧑‍💻 Desarrollado por
 
-- [@marithzacast] Proyecto realizado con fines educativos para practicar React y consumo de APIs externas.
+- [@marithzacasta] Proyecto realizado con fines educativos para practicar React y consumo de APIs externas.
 
 
 

@@ -18,7 +18,7 @@ import {
 const AboutPage = () => {
   const personalInfo = {
     name: "Marithza Castaño",
-    title: "Desarrolladora Full Stack",
+    title: "Desarrolladora Full Stack y QA",
     description: "Apasionada por crear soluciones web innovadoras y experiencias digitales excepcionales. Me especializo en el desarrollo full stack con un enfoque particular en tecnologías modernas de React y Node.js.",
     email: "marithzacastano9.5@gmail.com",
     github: "https://github.com/marithzacasta/ProyectReact",
