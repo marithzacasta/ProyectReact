@@ -59,7 +59,7 @@ Uso de Vite y TailwindCSS para optimizar el desarrollo.
 ## 🖥️ Vista general del proyecto
 
 ### Página principal
-![Página principal](./assets/images/home.png)
+![Página principal](./src/assets/images/home.png)
 
 ### Detalles de película
 ![Detalles de película](./assets/images/homeMovies.png)
